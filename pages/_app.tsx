@@ -24,10 +24,10 @@ import Footer from "../components/footer";
 // import Footer from '../components/footer'
 
 const PtWebApp = ({ Component, pageProps }: AppProps) => {
-  console.log("THEME OBJ ", Theme);
   return (
     <UserContext>
       <ChakraProvider resetCSS theme={Theme}>
+        {console.log("Theme OBJ", Theme)}
         <Header />
         <Component {...pageProps} />
         <Footer />

@@ -17,7 +17,7 @@ const theme = extendTheme({
     xl: "1200px",
   },
   initialColorMode: 'light',
-  useSystemColorMode: false,
+  useSystemColorMode: true,
 })
 
 export default theme

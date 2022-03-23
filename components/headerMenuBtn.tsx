@@ -48,7 +48,7 @@ const HeaderMenuBtn = () => {
           <DrawerHeader>Create your account</DrawerHeader>
 
           <DrawerBody>
-            <h4>Drawer Body Text</h4>
+            <h4>Drawer Body Text. Hi there</h4>
           </DrawerBody>
 
           <DrawerFooter>

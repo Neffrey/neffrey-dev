@@ -5,6 +5,8 @@ import React, { createContext, useState } from "react";
 interface UserContext {
   loginUser: () => void;
   logoutUser: () => void;
+  toggleDarkMode: () => void;
+  userDarkMode: boolean;
   userId: string;
   userErrorMsg?: string;
   userName?: string;
@@ -13,6 +15,8 @@ interface UserContext {
 const defaultState = {
   loginUser: () => {},
   logoutUser: () => {},
+  toggleDarkMode: () => {},
+  userDarkMode: true,
   userId: "",
   userErrorMsg: "",
   userName: "",
@@ -23,6 +27,7 @@ export const UserContext = createContext<UserContext>(defaultState);
 // USER Context Component
 const UserContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
   // State Vars
+  const [userDarkMode, setUserDarkMode] = useState(defaultState.userDarkMode);
   const [userErrorMsg, setUserErrorMsg] = useState(defaultState.userErrorMsg);
   const [userId, setUserId] = useState(defaultState.userId);
   const [userName, setUserName] = useState(defaultState.userName);
@@ -35,14 +40,17 @@ const UserContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
     setUserId("12345");
     setUserName("Neffrey");
   };
+  
   const logoutUser = () => {
     setUserId("");
     setUserName("");
   };
 
+  const toggleDarkMode = () => setUserDarkMode(userDarkMode => !userDarkMode);
+
   return (
     <UserContext.Provider
-      value={{ loginUser, logoutUser, userId, userErrorMsg, userName }}
+      value={{ loginUser, logoutUser, toggleDarkMode, userDarkMode, userId, userErrorMsg, userName }}
     >
       {children}
     </UserContext.Provider>

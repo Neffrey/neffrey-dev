@@ -6,6 +6,8 @@ import { Box, Center, Flex, Heading } from "@chakra-ui/react";
 // TYPES
 import type { NextPage } from "next";
 
+// COMPONENTS
+import HeaderMenuBtn from "../components/headerMenuBtn";
 
 // PAGE FUNCTION
 const Home: NextPage = () => {
@@ -31,6 +33,10 @@ const Home: NextPage = () => {
           </Link>
           */}
         </Flex>
+        <Box>
+          <HeaderMenuBtn />
+          <HeaderMenuBtn />
+        </Box>
       </main>
     </Box>
   );
