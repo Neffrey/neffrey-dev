@@ -14,7 +14,7 @@ const Home: NextPage = () => {
   return (
     <Box w="100%">
       <Head>
-        <title>Prop Tricks: Movement Database</title>
+        <title>Neffrey - Dancer, Designer, Developer</title>
       </Head>
       <main>
         <Flex bg="teal.500" flexDir="column" minH="75vh">
@@ -33,10 +33,6 @@ const Home: NextPage = () => {
           </Link>
           */}
         </Flex>
-        <Box>
-          <HeaderMenuBtn />
-          <HeaderMenuBtn />
-        </Box>
       </main>
     </Box>
   );
