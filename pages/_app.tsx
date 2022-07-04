@@ -12,17 +12,15 @@ import "@fontsource/roboto";
 import "@fontsource/big-shoulders-display";
 
 // CONTEXT
-import UserContext from "../contexts/userProvider";
-// import Apollo from '../components/apollo'
-// import Auth from '../contexts/authContext'
-// import Themer from '../contexts/themeContext'
+import UserContext from "../components/contexts/userProvider";
 
 // COMPONENTS
-import Header from "../components/header";
-import Footer from "../components/footer";
-// import BodyBox from '../components/bodyBox'
-// import Footer from '../components/footer'
+import Header from "../components/layouts/header/header";
+import Footer from "../components/layouts/footer/footer";
 
+
+
+// APP FUNCTION
 const PtWebApp = ({ Component, pageProps }: AppProps) => {
   return (
     <UserContext>
@@ -37,22 +35,3 @@ const PtWebApp = ({ Component, pageProps }: AppProps) => {
 }
 
 export default PtWebApp;
-
-// OLD APP JS
-// // // // //
-//   return (
-//     <Auth>
-//       <Apollo>
-//         <User>
-//           <Themer>
-//             <Header />
-//             <BodyBox>
-//               <Component {...pageProps} />
-//             </BodyBox>
-//             <Footer />
-//           </Themer>
-//         </User>
-//       </Apollo>
-//     </Auth>
-//   )
-// }

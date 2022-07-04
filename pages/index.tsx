@@ -1,13 +1,19 @@
 // FRAMEWORK
 import React from "react";
 import Head from "next/head";
-import { Box, Center, Flex, Heading } from "@chakra-ui/react";
+import { Box, Center, Container, Flex, Heading, Image } from "@chakra-ui/react";
+import { Variant } from "framer-motion";
 
 // TYPES
 import type { NextPage } from "next";
 
 // COMPONENTS
-import HeaderMenuBtn from "../components/headerMenuBtn";
+import HomeHero from "../components/layouts/homepage/1hero";
+import HomeAbout from "../components/layouts/homepage/2about";
+import HomeFlowarts from "../components/layouts/homepage/3flowarts";
+import HomeGraphicDesign from "../components/layouts/homepage/4graphicDesign";
+import HomeWebDevelopment from "../components/layouts/homepage/5webDevelopment";
+import HomeContact from "../components/layouts/homepage/6contact";
 
 // PAGE FUNCTION
 const Home: NextPage = () => {
@@ -17,57 +23,15 @@ const Home: NextPage = () => {
         <title>Neffrey - Dancer, Designer, Developer</title>
       </Head>
       <main>
-        <Flex bg="teal.500" flexDir="column" minH="75vh">
-          <Center my="auto">
-            <Heading as="h1" size="2xl">
-              HOME PAGE
-            </Heading>
-          </Center>
-          {/*
-            <TricksContainer />
-          
-          <Link href="/login" passHref >
-            <Heading size='2xl'>
-              <a>Login Page</a>
-            </Heading>
-          </Link>
-          */}
-        </Flex>
+        <HomeHero />
+        <HomeAbout />
+        <HomeFlowarts />
+        <HomeGraphicDesign />
+        <HomeWebDevelopment />
+        <HomeContact />
       </main>
     </Box>
   );
 };
 
 export default Home;
-
-// // Page Function
-// const home = () => {
-//   // Render
-//   return (
-//     <Container maxWidth="md">
-//       <Head>
-//         <title>Prop Tricks: Movement Database</title>
-//       </Head>
-
-//       <main>
-//         <h1
-//           style={{
-//             textAlign: 'center',
-//             fontSize:'3em',
-//             margin:'40px'
-//           }}
-//         >
-//           Welcome to Prop Tricks
-//         </h1>
-//         <br />
-//         <TricksContainer />
-//         <br />
-//         <Link href="login" passHref >
-//           <h6>
-//             <a>Login Page</a>
-//           </h6>
-//         </Link>
-//       </main>
-//     </Container>
-//   )
-// }

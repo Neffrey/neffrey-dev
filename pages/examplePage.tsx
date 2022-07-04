@@ -10,7 +10,7 @@ import type { NextPage } from "next";
 import ExamplePageLayout from "../components/examplePageLayout";
 
 // CONTEXTS
-import { UserContext } from "../contexts/userProvider";
+import { UserContext } from "../components/contexts/userProvider";
 
 // PAGE COMPONENT
 const ExamplePage: NextPage = () => {

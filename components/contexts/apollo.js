@@ -5,7 +5,7 @@ import { setContext } from '@apollo/client/link/context'
 import { userStore } from '../contexts/userContext'
 
 // Context
-import { authContext } from '../contexts/authContext'
+import { authContext } from './authContext'
 
 // Rendered Component
 const Apollo = ({ children }) => {

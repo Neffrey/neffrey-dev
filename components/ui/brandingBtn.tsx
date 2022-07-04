@@ -4,7 +4,7 @@ import Link from "next/link";
 import { AspectRatio, Flex, Heading, Image, Show } from "@chakra-ui/react";
 
 // COMPONENTS
-import LoadAfterRender from "./loadAfterRender";
+import LoadAfterRender from "../hooks/loadAfterRender";
 
 
 // Component Function
@@ -20,7 +20,7 @@ const BrandingBtn = () => {
         <Show above="md">
           <Link href="/" passHref>
             <Heading as="h2" cursor="pointer" ml={2} my="auto" size="md">
-              My Brand
+              Neffrey
             </Heading>
           </Link>
         </Show>

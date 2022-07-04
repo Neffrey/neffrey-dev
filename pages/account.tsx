@@ -7,7 +7,7 @@ import { Box, Button, Center, Flex, Heading } from "@chakra-ui/react";
 import type { NextPage } from "next";
 
 // CONTEXTS
-import { UserContext } from "../contexts/userProvider";
+import { UserContext } from "../components/contexts/userProvider";
 
 // PAGE COMPONENT
 const Account: NextPage = () => {

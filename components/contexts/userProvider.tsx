@@ -1,36 +1,43 @@
 // Framework
 import React, { createContext, useState } from "react";
+import { useColorMode } from "@chakra-ui/react";
 
 // Context Type
 interface UserContext {
   loginUser: () => void;
   logoutUser: () => void;
-  toggleDarkMode: () => void;
-  userDarkMode: boolean;
+  toggleColorState: () => void;
+  userColorState: string;
   userId: string;
   userErrorMsg?: string;
   userName?: string;
 }
-// Context Default State
-const defaultState = {
+
+// Context Default Values
+const defaultValues = {
   loginUser: () => {},
   logoutUser: () => {},
-  toggleDarkMode: () => {},
-  userDarkMode: true,
+  toggleColorState: () => {},
+  userColorState: "dark",
   userId: "",
   userErrorMsg: "",
   userName: "",
 };
 
-export const UserContext = createContext<UserContext>(defaultState);
+export const UserContext = createContext<UserContext>(defaultValues);
 
 // USER Context Component
 const UserContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
+  // Chakra UI Vars
+  const { colorMode, toggleColorMode } = useColorMode();
+
   // State Vars
-  const [userDarkMode, setUserDarkMode] = useState(defaultState.userDarkMode);
-  const [userErrorMsg, setUserErrorMsg] = useState(defaultState.userErrorMsg);
-  const [userId, setUserId] = useState(defaultState.userId);
-  const [userName, setUserName] = useState(defaultState.userName);
+  const [userColorState, setUserColorState] = useState(
+    defaultValues.userColorState
+  );
+  const [userErrorMsg, setUserErrorMsg] = useState(defaultValues.userErrorMsg);
+  const [userId, setUserId] = useState(defaultValues.userId);
+  const [userName, setUserName] = useState(defaultValues.userName);
   //   const [userEmail, setUserEmail] = useState("");
   //   const [userFirstName, setUserFirstName] = useState("");
   //   const [userRoles, setUserRoles] = useState([]);
@@ -40,17 +47,29 @@ const UserContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
     setUserId("12345");
     setUserName("Neffrey");
   };
-  
+
   const logoutUser = () => {
     setUserId("");
     setUserName("");
   };
 
-  const toggleDarkMode = () => setUserDarkMode(userDarkMode => !userDarkMode);
+  const toggleColorState = () => {
+    setUserColorState((userColorState) =>
+      userColorState === "light" ? "dark" : "light"
+    );
+  };
 
   return (
     <UserContext.Provider
-      value={{ loginUser, logoutUser, toggleDarkMode, userDarkMode, userId, userErrorMsg, userName }}
+      value={{
+        loginUser,
+        logoutUser,
+        toggleColorState,
+        userColorState,
+        userId,
+        userErrorMsg,
+        userName,
+      }}
     >
       {children}
     </UserContext.Provider>
