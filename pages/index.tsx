@@ -1,19 +1,18 @@
 // FRAMEWORK
 import React from "react";
 import Head from "next/head";
-import { Box, Center, Container, Flex, Heading, Image } from "@chakra-ui/react";
-import { Variant } from "framer-motion";
+import { Box } from "@chakra-ui/react";
 
 // TYPES
 import type { NextPage } from "next";
 
 // COMPONENTS
-import HomeHero from "../components/layouts/homepage/1hero";
-import HomeAbout from "../components/layouts/homepage/2about";
-import HomeFlowarts from "../components/layouts/homepage/3flowarts";
-import HomeGraphicDesign from "../components/layouts/homepage/4graphicDesign";
-import HomeWebDevelopment from "../components/layouts/homepage/5webDevelopment";
-import HomeContact from "../components/layouts/homepage/6contact";
+import HomeHero from "components/templates/homepage/hero";
+import HomeAbout from "components/templates/homepage/about";
+import HomeFlowarts from "components/templates/homepage/flowarts";
+import HomeGraphicDesign from "components/templates/homepage/graphicDesign";
+import HomeWebDevelopment from "components/templates/homepage/webDevelopment";
+import HomeContact from "components/templates/homepage/contact";
 
 // PAGE FUNCTION
 const Home: NextPage = () => {

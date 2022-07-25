@@ -1,50 +1,41 @@
 // FRAMEWORK
 import React from "react";
-import Head from "next/head";
 import {
   AspectRatio,
   Box,
-  Button,
   Center,
   Container,
-  Flex,
   Heading,
-  HStack,
   Image,
   Text,
   useColorModeValue,
-  useMediaQuery,
-  useTheme,
   VStack,
 } from "@chakra-ui/react";
 
-// TYPES
-import type { NextPage } from "next";
 
 // COMPONENT FUNCTION
-const HomeGraphicDesign: NextPage = () => {
+const HomeGraphicDesign: React.FC = () => {
   return (
     <Container
       // Row container
+      id="graphicdesign"
       bg={useColorModeValue("gray.200", "gray.700")}
       display="flex"
       flexDir="row"
-      id="graphicdesign"
+      flexWrap="wrap-reverse"
       justifyContent="center"
       minW="100%"
+      paddingY={5}
     >
       <Container
         // Text box container
-        as="div"
         bg={useColorModeValue("gray.100", "gray.900")}
         borderRadius="5px"
-        margin={10}
+        marginX={10}
+        marginY={{ base: 10, lg: 20 }}
         padding={10}
       >
-        <VStack
-          // Text VStack
-          marginBottom={5}
-        >
+        <VStack>
           <Heading as="h3" size="xl" marginBottom={5} textAlign="center">
             Graphic Design
           </Heading>
@@ -56,21 +47,18 @@ const HomeGraphicDesign: NextPage = () => {
             interfaces. In the future I'd like to have merch with my designs for
             sale here so stay tuned.
           </Text>
-
-          <Text>
-            Nowadays I no longer offering design and development services. I
-            want any time spent on graphic art and web development to be on my
-            own projects. There are many beautiful ideas in my head. I want to
-            see some of them actually get made.
-          </Text>
         </VStack>
       </Container>
 
       <Center
       // Graphic art IMG wrapper
       >
-        <Box borderRadius="5px" boxShadow="2xl" margin={5} overflow="hidden">
-          <AspectRatio ratio={12 / 9} width={500}>
+        <Box borderRadius="5px" boxShadow="2xl" margin={10} overflow="hidden">
+          <AspectRatio
+            as={Box}
+            ratio={12 / 9}
+            width={{ base: 300, md: 400, lg: 600 }}
+          >
             <Image
               alt="Neffrey's Graphic Art Piece Forest Wolf"
               cursor="pointer"
@@ -83,3 +71,12 @@ const HomeGraphicDesign: NextPage = () => {
   );
 };
 export default HomeGraphicDesign;
+
+{
+  /* <Text>
+Nowadays I no longer offering design and development services. I
+want any time spent on graphic art and web development to be on my
+own projects. There are many beautiful ideas in my head. I want to
+see some of them actually get made.
+</Text> */
+}

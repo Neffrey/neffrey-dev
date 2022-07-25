@@ -9,7 +9,7 @@ import {
 import { FaMoon, FaSun } from "react-icons/fa";
 
 // CONTEXTS
-import { UserContext } from "../contexts/userProvider";
+import { UserContext } from "components/contexts/userProvider";
 
 // Component Function
 const HeaderMenuBtn = () => {

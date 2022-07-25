@@ -11,17 +11,10 @@
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
-    "paths": {
-      "@/components/*": ["src/common/components/*"],
-      "@/pages/*": ["src/pages/*"],
-      "@/public/*": ["src/public/*"],
-      "@/theme/*": ["src/theme/*"],
-      "@/types/*": ["src/types/*"],
-    },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "es5",
+    "target": "es5"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

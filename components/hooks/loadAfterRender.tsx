@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 
 // Component Function
-const OnRender = ({ children }: React.PropsWithChildren<{}>) => {
+const OnRender: React.FC = ({ children }) => {
   // State
   const [rendered, setRendered] = useState(false);
 

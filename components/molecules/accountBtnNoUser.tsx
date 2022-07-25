@@ -4,8 +4,7 @@ import Link from "next/link";
 import { Avatar, Box, Center, Heading } from "@chakra-ui/react";
 
 // Component Function
-const HeaderAccountNoUser = () => {
-  const [loginState, setLoginState] = useState(false);
+const AccountBtnNoUser = () => {
   return (
     <Box my="auto">
       <Center>
@@ -25,4 +24,4 @@ const HeaderAccountNoUser = () => {
     </Box>
   );
 };
-export default HeaderAccountNoUser;
+export default AccountBtnNoUser;

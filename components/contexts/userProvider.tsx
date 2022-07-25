@@ -3,13 +3,14 @@ import React, { createContext, useState } from "react";
 import { useColorMode } from "@chakra-ui/react";
 
 // Context Type
-interface UserContext {
+interface UserContextType {
   loginUser: () => void;
   logoutUser: () => void;
   toggleColorState: () => void;
+  children?: React.ReactNode;
   userColorState: string;
-  userId: string;
   userErrorMsg?: string;
+  userId: string;
   userName?: string;
 }
 
@@ -24,10 +25,10 @@ const defaultValues = {
   userName: "",
 };
 
-export const UserContext = createContext<UserContext>(defaultValues);
+export const UserContext = createContext<UserContextType>(defaultValues);
 
 // USER Context Component
-const UserContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
+const UserContextProvider: React.FC<UserContextType>  = ({ children }) => {
   // Chakra UI Vars
   const { colorMode, toggleColorMode } = useColorMode();
 

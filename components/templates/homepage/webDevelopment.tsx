@@ -13,6 +13,7 @@ import {
   Icon,
   IconButton,
   Image,
+  SimpleGrid,
   Text,
   useColorModeValue,
   useMediaQuery,
@@ -20,14 +21,15 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-// TYPES
-import type { NextPage } from "next";
-
 // MY COMPONENTS
-import GraphQlLogo from "components/ui/graphql-logo";
+import SVGIcon from "components/molecules/graphqlLogo";
+import GraphqlLogo from "components/molecules/graphqlLogo";
+import ReactJSLogo from "components/molecules/reactjsLogo";
+import WordPressLogo from "components/molecules/wordpressLogo";
 
 // COMPONENT FUNCTION
-const HomeWebDevelopment: NextPage = () => {
+const HomeWebDevelopment: React.FC = () => {
+  const DevIconSizes = { base: 150, md: 125, lg: 100 }
   return (
     <Container
       // Row container
@@ -70,25 +72,29 @@ const HomeWebDevelopment: NextPage = () => {
             community-based trick dictionary app for flowarts. I can’t share too
             much about that yet. More info coming!
           </Text>
-          <HStack
-          // Logos HStack
+
+          <SimpleGrid
+            // Logos Grid
+            columns={{
+              base: 1,
+              md: 2,
+              lg: 3,
+            }}
+            paddingTop={5}
+            spacing={5}
           >
             <VStack
               // WordPress Logo & Header
               padding={4}
             >
-              <Image
-                alt="WordPress Logo"
-                cursor="cursor"
-                height={{ base: "50px", md: "70px", lg: "90px" }}
-                src="/wp-logo.svg"
-              />
-              {/* <Icon
-                alt="WordPress Logo"
-                cursor="cursor"
-                height={{ base: "50px", md: "70px", lg: "90px" }}
-                src="/wp-logo.svg"
-              /> */}
+              <AspectRatio
+                color={useColorModeValue("black", "white")}
+                ratio={1}
+                width={200}
+                maxH={DevIconSizes}
+              >
+                <WordPressLogo />
+              </AspectRatio>
               <Heading as="h4" size="md" textAlign="center">
                 WordPress
               </Heading>
@@ -98,12 +104,14 @@ const HomeWebDevelopment: NextPage = () => {
               // ReactJS Logo & Header
               padding={4}
             >
-              <Image
-                alt="ReactJS Logo"
-                cursor="cursor"
-                height={{ base: "50px", md: "70px", lg: "90px" }}
-                src="/react-logo.svg"
-              />
+              <AspectRatio
+                color={useColorModeValue("black", "white")}
+                ratio={1}
+                width={200}
+                maxH={DevIconSizes}
+              >
+                <ReactJSLogo />
+              </AspectRatio>
               <Heading as="h4" size="md" textAlign="center">
                 ReactJS
               </Heading>
@@ -113,18 +121,19 @@ const HomeWebDevelopment: NextPage = () => {
               // GraphQL Logo & Header
               padding={4}
             >
-              {/* <Image
-                alt="GraphQL Logo"
-                cursor="cursor"
-                height={{ base: "50px", md: "70px", lg: "90px" }}
-                src="/graphql-logo.svg"
-              /> */}
-              <GraphQlLogo />
+              <AspectRatio
+                color={useColorModeValue("black", "white")}
+                ratio={1}
+                width={200}
+                maxH={DevIconSizes}
+              >
+                <GraphqlLogo />
+              </AspectRatio>
               <Heading as="h4" size="md" textAlign="center">
                 GraphQL
               </Heading>
             </VStack>
-          </HStack>
+          </SimpleGrid>
         </VStack>
       </Container>
     </Container>

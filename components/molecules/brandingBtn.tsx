@@ -4,7 +4,7 @@ import Link from "next/link";
 import { AspectRatio, Flex, Heading, Image, Show } from "@chakra-ui/react";
 
 // COMPONENTS
-import LoadAfterRender from "../hooks/loadAfterRender";
+import LoadAfterRender from "components/hooks/loadAfterRender";
 
 
 // Component Function

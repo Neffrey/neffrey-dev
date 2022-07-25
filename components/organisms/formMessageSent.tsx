@@ -1,5 +1,5 @@
 // FRAMEWORK
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import {
   AspectRatio,
@@ -8,9 +8,11 @@ import {
   Center,
   Container,
   Flex,
+  Grid,
   Heading,
   HStack,
   Image,
+  SimpleGrid,
   Text,
   useColorModeValue,
   useMediaQuery,
@@ -18,11 +20,13 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-// TYPES
-import type { NextPage } from "next";
 
 // COMPONENT FUNCTION
-const HomeContact: NextPage = () => {
-  return <></>;
+const HomeContact: React.FC = () => {
+  // Form States
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  return <Container>hi</Container>;
 };
 export default HomeContact;

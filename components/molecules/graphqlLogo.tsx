@@ -3,18 +3,14 @@ import { createIcon, Icon } from "@chakra-ui/react";
 
 // Context Type
 interface CustomSvgIcon {
-    loginUser: () => void;
-    logoutUser: () => void;
-    toggleColorState: () => void;
-    userColorState: string;
-    userId: string;
-    userErrorMsg?: string;
-    userName?: string;
-  }
+  displayName?: string;
+}
 
-const GraphQlLogo = (props: any) => {
-  const GraphQlLogoSvg = createIcon({
-    displayName: "GraphQlLogo",
+// Component Function
+const GraphQlLogo: React.FC<CustomSvgIcon> = ({ displayName }) => {
+
+  const GraphQlIcon = createIcon({
+    displayName: displayName || "GraphQl Logo",
     viewBox: "0 0 400 400",
     path: [
       <path
@@ -46,7 +42,7 @@ const GraphQlLogo = (props: any) => {
     ],
   });
 
-  return <Icon as={GraphQlLogoSvg} />;
+  return <Icon as={GraphQlIcon} />;
 };
 
 export default GraphQlLogo;

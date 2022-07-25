@@ -1,67 +1,39 @@
 // FRAMEWORK
 import React from "react";
-import Head from "next/head";
 import {
   AspectRatio,
   Box,
-  Button,
   Center,
   Container,
   Flex,
   Heading,
-  HStack,
   Image,
   Text,
   useColorModeValue,
-  useMediaQuery,
-  useTheme,
   VStack,
 } from "@chakra-ui/react";
 
-// TYPES
-import type { NextPage } from "next";
 
 // COMPONENT FUNCTION
-const HomeContact: NextPage = () => {
+const HomeAbout: React.FC = () => {
   return (
     <Container
       // Row container
+      id="about"
       bg={useColorModeValue("gray.200", "gray.700")}
       display="flex"
       flexDir="row"
-      id="contact"
+      flexWrap="wrap-reverse"
       justifyContent="center"
       minW="100%"
+      paddingY={5}
     >
       <Container
         // Text box container
         as="div"
         bg={useColorModeValue("gray.100", "gray.900")}
         borderRadius="5px"
-        margin={20}
-        padding={10}
-      >
-        <VStack
-          // Text & Form Vstack
-          marginBottom={5}
-        >
-          <Heading as="h3" marginBottom={2} textAlign="center">
-            Get In Touch
-          </Heading>
-          <Text>
-            Send me a quick message and I’ll get back to you as soon as I can.
-            Again, I’m not trying to take on any design or development jobs
-            unless you REALLY want me to do it and you’re ready to pay REALLY
-            big bucks. My attention is elsewhere :/
-          </Text>
-        </VStack>
-      </Container>
-      <Container
-        // Text box container
-        as="div"
-        bg={useColorModeValue("gray.100", "gray.900")}
-        borderRadius="5px"
-        margin={20}
+        margin={{ base: 10, lg: 20 }}
         padding={10}
       >
         <VStack marginBottom={5}>
@@ -78,7 +50,17 @@ const HomeContact: NextPage = () => {
           </Text>
         </VStack>
       </Container>
+
+      <Center
+      // Selfie IMG Wrapper
+      >
+        <Box borderRadius="5px" boxShadow="2xl" margin={10} overflow="hidden">
+          <AspectRatio ratio={3 / 4} width={{ base: 280, sm: 325, lg: 300 }}>
+            <Image alt="Neffrey Selfie" cursor="pointer" src="/selfie.jpg" />
+          </AspectRatio>
+        </Box>
+      </Center>
     </Container>
   );
 };
-export default HomeContact;
+export default HomeAbout;

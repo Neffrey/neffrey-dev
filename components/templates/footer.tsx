@@ -12,10 +12,12 @@ import {
   HStack,
   Text,
 } from "@chakra-ui/react";
-import BrandingBtn from "../../ui/brandingBtn";
+
+// My Components
+import BrandingBtn from "components/molecules/brandingBtn";
 
 // Component Function
-const Footer = () => {
+const Footer: React.FC = () => {
   const theme = useTheme();
   let currentYear = new Date();
   return (
@@ -50,28 +52,3 @@ const Footer = () => {
   );
 };
 export default Footer;
-
-{
-  /* <Flex wrap="wrap">
-<Box
-  sx={{
-    "@media only screen and (max-width: 767px)": {
-      "& > div > div": { marginX: "auto" },
-    },
-  }}
-  w={{ base: "100%", lg: "34%" }}
->
-  <BrandingBtn />
-</Box>
-<Box m="auto" w={{ base: "100%", lg: "34%" }}>
-  <Center>
-    <Heading fontSize="lg">FOOTER COMP</Heading>
-  </Center>
-</Box>
-<Box m="auto" w={{ base: "100%", lg: "32%" }}>
-  <Text textAlign={{ base: "center", lg: "right" }} mx={4}>
-    Hi Mom
-  </Text>
-</Box>
-</Flex> */
-}

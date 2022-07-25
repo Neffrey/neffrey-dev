@@ -16,11 +16,9 @@ import {
 import { FcMenu } from "react-icons/fc";
 
 // Component Function
-const HeaderMenuBtn = () => {
+const MenuBtn = () => {
   // Chakra Disclosure
   const { isOpen, onOpen, onClose } = useDisclosure();
-  // const btnRef = React.useRef();
-  // console.log("BtnRef ", btnRef, "Type ", typeof btnRef)
 
   return (
     <>
@@ -35,7 +33,7 @@ const HeaderMenuBtn = () => {
           variant="unstyled"
         />
       </AspectRatio>
-      {/* DRAWER GOES HERE */}
+      {/* DRAWER HERE */}
       <Drawer
         isOpen={isOpen}
         placement="left"
@@ -62,4 +60,4 @@ const HeaderMenuBtn = () => {
     </>
   );
 };
-export default HeaderMenuBtn;
+export default MenuBtn;

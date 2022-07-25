@@ -1,49 +1,44 @@
 // FRAMEWORK
 import React from "react";
-import Head from "next/head";
+import Link from "next/link";
 import {
-  Box,
   Button,
-  Center,
   Container,
-  Flex,
+  Grid,
+  GridItem,
   Heading,
   IconButton,
-  HStack,
-  Image,
   Text,
   useColorModeValue,
-  useMediaQuery,
-  useTheme,
   useToken,
   VStack,
 } from "@chakra-ui/react";
 import { FcExpand } from "react-icons/fc";
 
-// TYPES
-import type { NextPage } from "next";
-import Link from "next/link";
 
 // COMPONENT FUNCTION
-const HomeHero: NextPage = () => {
-  // Get theme colors
-  const [dropShadowColor, dropShadowColorDark] = useToken(
-    // the key within the theme, in this case `theme.colors`
-    "colors",
-    // the subkey(s), resolving to `theme.colors.red.100`
-    ["cyan.700", "cyan.200"]
-    // a single fallback or fallback array matching the length of the previous arg
-  );
+const HomeHero: React.FC = () => {
+  // Get theme colors from inside theme.colors
+  const [dropShadowColor, dropShadowColorDark] = useToken("colors", [
+    "cyan.700",
+    "cyan.200",
+  ]);
   return (
     <Container
       // Row Container
+      as={Grid}
       variant="ndHero"
-      display="flex"
-      flexDir="column"
-      justifyContent="space-between"
       position="relative"
+      templateColumns={{
+        base: "1fr",
+        md: "repeat(5, 1fr)",
+      }}
+      templateRows={{
+        base: "repeat(3, 1fr)",
+        md: "repeat(5, 1fr)",
+      }}
+      // Background Image
       _before={{
-        // Background Image
         backgroundImage: {
           base: "url(../../../lake-flow-bw-600.jpg)",
           md: "url(../../../lake-flow-bw-960.jpg)",
@@ -62,8 +57,8 @@ const HomeHero: NextPage = () => {
         width: "100%",
         zIndex: "-2",
       }}
+      // Bg Color Overlay
       _after={{
-        // Bg Color Overlay
         backgroundColor: useColorModeValue("cyan.300", "cyan.900"),
         content: '""',
         display: "block",
@@ -77,46 +72,58 @@ const HomeHero: NextPage = () => {
         mixBlendMode: useColorModeValue("screen", "multiply"),
       }}
     >
-      <Container
-        // Text Box Container
-        display="flex"
-        flexDir="column"
-        alignItems="center"
-        justifyContent="center"
-        marginTop={{ base: "42%", md: "40%", lg: "10%" }}
-        marginLeft={{ base: "0", md: "30%", lg: "47%" }}
-        variant="ndTextBox"
+      <GridItem
+        // Text Box
+        colSpan={{ base: 1, md: 3 }}
+        colStart={{ base: 1, md: 2, lg: 3 }}
+        rowSpan={{ base: 1, md: 2 }}
+        rowStart={{ base: 2, md: 2 }}
       >
-        <Link href="./#about">
-          <Heading as="h1" textAlign="center" w="100%">
-            Meet Neffrey
-          </Heading>
-        </Link>
-        <Link href="./#flowart">
-          <Text as="p" textAlign="center" w="100%">
-            Flow Artist
-          </Text>
-        </Link>
-        <Link href="./#graphic-design">
-          <Text as="p" textAlign="center" w="100%">
-            Graphic Designer
-          </Text>
-        </Link>
-        <Link href="./#web-developer">
-          <Text as="p" textAlign="center" w="100%">
-            Web Developer
-          </Text>
-        </Link>
-        <Button mt={5} variant="cyanBtn" opacity="0.75">
-          Send Me A Message
-        </Button>
-      </Container>
-      <Container
+        <Container
+          display="flex"
+          flexDir="column"
+          alignItems="center"
+          justifyContent="center"
+          variant="ndTextBox"
+          width="100%"
+        >
+          <Link href="./#about">
+            <Heading as="h1" textAlign="center" w="100%">
+              Meet Neffrey
+            </Heading>
+          </Link>
+          <Link href="./#flowart">
+            <Text as="p" textAlign="center" w="100%" mt={3}>
+              Flow Artist
+            </Text>
+          </Link>
+          <Link href="./#graphic-design">
+            <Text as="p" textAlign="center" w="100%">
+              Graphic Designer
+            </Text>
+          </Link>
+          <Link href="./#web-developer">
+            <Text as="p" textAlign="center" w="100%">
+              Web Developer
+            </Text>
+          </Link>
+          <Button mt={5} variant="cyanBtn" opacity="0.75">
+            Send Me A Message
+          </Button>
+        </Container>
+      </GridItem>
+
+      <GridItem
         // Scroll Down Arrow Btn
-        marginBottom={4}
-        width="100%"
+        colStart={{ base: 1, md: 3 }}
+        rowStart={5}
+        marginBottom={5}
       >
-        <Center>
+        <VStack
+          justifyContent="flex-end"
+          height="100%"
+          width="100%"
+        >
           <Link href="./#about">
             <IconButton
               aria-label="Learn More About Neffrey"
@@ -145,10 +152,9 @@ const HomeHero: NextPage = () => {
               }}
             />
           </Link>
-        </Center>
-      </Container>
+        </VStack>
+      </GridItem>
     </Container>
   );
 };
 export default HomeHero;
-
