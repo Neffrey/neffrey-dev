@@ -67,7 +67,7 @@ const HomeContact: React.FC = () => {
                 I’ll get back to you as soon as I can.
               </Text>
             </Box>
-            <Box>
+            <Box paddingX={5}>
               <ContactForm />
             </Box>
           </Grid>

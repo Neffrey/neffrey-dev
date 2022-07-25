@@ -71,7 +71,6 @@ const theme = extendTheme({
           p: "0",
           h: "80vh",
           w: "100%",
-          //minH: "80vh",
           maxW: "100%",
         }),
         ndTextBox: () => ({
@@ -95,6 +94,13 @@ const theme = extendTheme({
             opacity: "0.7",
             mixBlendMode: useColorModeValue("screen", "multiply"),
           },
+        }),
+      },
+    },
+    Text: {
+      variants: {
+        error: () => ({
+          color: useColorModeValue("red.600", "red.400"),
         }),
       },
     },

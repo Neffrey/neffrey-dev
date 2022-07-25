@@ -2,11 +2,11 @@
 import React from "react";
 import { Formik, FormikProps } from "formik";
 import * as Yup from "yup";
-import { Button } from "@chakra-ui/react";
+import { Button, FormErrorMessage } from "@chakra-ui/react";
 
 // MY COMPONENTS
-import FormikInput from "components/molecules/formikInput";
-import FormikTextArea from "components/molecules/formikTextArea";
+import FormikInput from "components/organisms/formikInput";
+import FormikTextArea from "components/organisms/formikTextArea";
 
 // FORM VALUES &
 interface ValueTypes {
@@ -31,11 +31,11 @@ const ContactForm: React.FC = () => {
         sender: Yup.string()
           .min(2, "Too Short!")
           .max(15, "Must be 15 characters or less")
-          .required("* Field is Required"),
+          .required("Field is Required"),
         message: Yup.string()
           .min(2, "Too Short!")
           .max(20, "Must be 20 characters or less")
-          .required("* Field is Required"),
+          .required("Field is Required"),
       })}
     >
       {(props: FormikProps<ValueTypes>) => (
@@ -46,6 +46,7 @@ const ContactForm: React.FC = () => {
             type="text"
             placeholder="Enter your first name"
             marginBottom={5}
+            isRequired
           />
           <FormikTextArea
             label="Formik TextArea Comp"
@@ -53,8 +54,20 @@ const ContactForm: React.FC = () => {
             type="text"
             placeholder="Send a message"
             marginBottom={5}
+            isRequired
           />
-          <Button type="submit" variant="cyanBtn" width="full" marginTop={2}>
+          {!props.isValid && (
+            <FormErrorMessage marginBottom={1}>
+              Please complete all of the required fields above.
+            </FormErrorMessage>
+          )}
+          <Button
+            type="submit"
+            variant="cyanBtn"
+            isLoading={props.isSubmitting}
+            width="full"
+            marginTop={2}
+          >
             Send Message
           </Button>
         </form>
